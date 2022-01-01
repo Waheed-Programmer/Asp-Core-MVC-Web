@@ -18,6 +18,11 @@ namespace MVCCoreWeb.Controllers
             return View();
         }
 
+        [HttpGet]
+        public IActionResult Math()
+        {
+            return View();
+        }
         public IActionResult Privacy()
         {
             return View();
