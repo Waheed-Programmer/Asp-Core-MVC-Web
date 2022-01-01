@@ -9,9 +9,9 @@ namespace MVCCoreWeb.Models
     public class ModelMath
     {
         [Required(ErrorMessage ="Firs Number is Required")]
-        public int FirstNum { get; set; }
+        public int? FirstNum { get; set; }
         [Required(ErrorMessage ="Last Number is Required")]
-        public int LastNum { get; set; }
-        public int Result { get; set; }
+        public int? LastNum { get; set; }
+        public int? Result { get; set; }
     }
 }

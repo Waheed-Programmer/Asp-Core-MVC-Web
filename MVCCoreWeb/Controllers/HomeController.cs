@@ -32,8 +32,7 @@ namespace MVCCoreWeb.Controllers
             {
                 m.Result = m.FirstNum + m.LastNum;
                 
-            }
-           
+            }           
                 return View(m);
            
         }
