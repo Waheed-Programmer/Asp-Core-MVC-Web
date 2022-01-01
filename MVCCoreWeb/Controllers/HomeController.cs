@@ -12,6 +12,17 @@ namespace MVCCoreWeb.Controllers
     public class HomeController : Controller
     {
         
+        [HttpGet]
+        public IActionResult Employe()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Employe(EmployeModel e)
+        {
+            return View(e);
+        }
 
         public IActionResult Index()
         {
