@@ -21,7 +21,9 @@ namespace MVCCoreWeb.Controllers
         [HttpGet]
         public IActionResult Math()
         {
-            return View();
+            ModelMath model = new ModelMath();
+            model.Result = 0;
+            return View(model);
         }
         [HttpPost]
         public IActionResult Math(ModelMath m)
@@ -29,12 +31,11 @@ namespace MVCCoreWeb.Controllers
             if (ModelState.IsValid)
             {
                 m.Result = m.FirstNum + m.LastNum;
-                return View();
+                
             }
-            else
-            {
+           
                 return View(m);
-            }
+           
         }
         public IActionResult Privacy()
         {
