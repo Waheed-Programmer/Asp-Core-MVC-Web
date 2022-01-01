@@ -23,6 +23,19 @@ namespace MVCCoreWeb.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public IActionResult Math(ModelMath m)
+        {
+            if (ModelState.IsValid)
+            {
+                m.Result = m.FirstNum + m.LastNum;
+                return View();
+            }
+            else
+            {
+                return View(m);
+            }
+        }
         public IActionResult Privacy()
         {
             return View();
