@@ -31,8 +31,10 @@
                     <input class="form-check-input" asp-for="IsAgreeTerm" /> @Html.DisplayNameFor(model => model.IsAgreeTerm)
                 </label>
             </div>
+            <span asp-validation-for="IsAgreeTerm" class="text-danger"></span>
+
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Submit or Continue" class="btn btn-primary" />
             </div>
         </form>
     </div>

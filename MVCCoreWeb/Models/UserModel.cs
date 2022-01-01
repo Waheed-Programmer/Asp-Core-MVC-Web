@@ -17,6 +17,7 @@ namespace MVCCoreWeb.Models
 
         [Required(ErrorMessage = "Confirm Password is Required")]
         [DataType(DataType.Password)]
+        [Compare("Password",ErrorMessage ="Password dont Match")]
         public string ConfirmPassword { get; set; }
 
         [Display(Name ="You can't proceed further untill you accept our terms and conditions.")]

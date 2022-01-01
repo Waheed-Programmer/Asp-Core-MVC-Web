@@ -29,6 +29,16 @@ namespace MVCCoreWeb.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public IActionResult Register(UserModel u)
+        {
+            if (!u.IsAgreeTerm)
+            {
+                ModelState.AddModelError("IsAgreeTerm", "Please check the terms and coonditions");
+            }
+            return View();
+        }
         public IActionResult Index()
         {
             return View();
