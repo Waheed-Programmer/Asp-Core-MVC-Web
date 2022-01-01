@@ -24,6 +24,11 @@ namespace MVCCoreWeb.Controllers
         //    return View(e);
         //}
 
+        [HttpGet]
+        public IActionResult Register()
+        {
+            return View();
+        }
         public IActionResult Index()
         {
             return View();
