@@ -18,11 +18,11 @@ namespace MVCCoreWeb.Controllers
             return View();
         }
 
-        [HttpPost]
-        public IActionResult Employe(EmployeModel e)
-        {
-            return View(e);
-        }
+        //[HttpPost]
+        //public IActionResult Employe(EmployeModel e)
+        //{
+        //    return View(e);
+        //}
 
         public IActionResult Index()
         {
