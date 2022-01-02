@@ -27,6 +27,26 @@ namespace MVCCoreWeb.Controllers
         [HttpPost]
         public IActionResult Create(ViewModelProduct p)
         {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    Product pp = new Product();
+                    pp.ProductName = p.ProductName;
+                    pp.Price = p.Price;
+                    pp.UserId = p.UserId;
+
+                    db.Products.Add(pp);
+                    db.SaveChanges();
+                    ViewBag.success = "Data save successfully";
+
+                }
+            }
+            catch (Exception)
+            {
+
+                return View(p);
+            }
             return View();
         }
 
