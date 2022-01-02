@@ -15,6 +15,11 @@ namespace MVCCoreWeb.Controllers
         [HttpGet]
         public IActionResult List()
         {
+            //var listIt = from a in db.Products
+            //             join b in db.Users
+            //             on a.ProductId equals b.UserId
+                         
+
             return View(db.Products.ToList());
         }
 
@@ -39,15 +44,16 @@ namespace MVCCoreWeb.Controllers
                     db.Products.Add(pp);
                     db.SaveChanges();
                     ViewBag.success = "Data save successfully";
-
+                    
                 }
+                return View();
             }
             catch (Exception)
             {
 
                 return View(p);
             }
-            return View();
+           
         }
 
     }
