@@ -15,7 +15,7 @@ namespace MVCCoreWeb.Controllers
         [HttpGet]
         public IActionResult List()
         {
-            return View();
+            return View(db.Products.ToList());
         }
 
         [HttpGet]
