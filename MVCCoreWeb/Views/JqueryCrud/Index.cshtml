@@ -1,0 +1,83 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+    <div class="container"><br /><br />
+        <div class="row">
+            <div class="col-9">
+                <h1 class="alert alert-info">Users List</h1>
+            </div>
+            <div class="col-3 mt-3">
+                <a asp-action="Create" asp-controller="JqueryCrud" class="btn btn-primary">Create Users</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 border p-3">
+
+        <table id="DT_Load" class="table table-striped border">
+            <thead>
+                <tr>
+                    <th>UserId</th>
+                    <th>UserName</th>
+                    <th>UserEmail</th>
+                    <th>UserMobileNo</th>
+                    <th></th>
+
+                </tr>
+            </thead>
+        </table>
+
+    </div>
+
+@section Scripts{ 
+
+    <script>
+        var dataTable;
+        $(document).ready(function () {
+            dataTable = $('#DT_Load').DataTable({
+                "ajax": {
+                    "url": "/Product/GetAllDataApiJson",
+                    "type": "GET",
+                    "datatype": "json"
+                },
+                "columns": [
+                    {
+                        "data": "productName",
+                        "width": "20%"
+                    },
+                    {
+                        "data": "unitPrice",
+                        "width": "20%"
+                    },
+                    {
+                        "data": "totalQuantity",
+                        "width": "20%"
+                    },
+                    {
+                        "data": "id",
+                        "width": "40%",
+                        "render": function (data) {
+                            return `<div class='text-center'>
+                    <a class='btn btn-success' href="/Product/Edit?id=${data}">Edit</a>
+                        &nbsp;
+                    <a onclick=Delete('/Product/DeleteByDataApiJson?id='+${data}) class='btn btn-danger text-white' style='cursor:pointer'>Delete</a>
+                       
+                       </div>`
+
+                        }
+                    }
+
+                ],
+                "language": {
+                    "emptyTable": "Not Found Data"
+                },
+                "width": "100%"
+
+            });
+        });
+    </script>
+}
