@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MVCCoreWeb.Controllers
 {
-    public class JqeryCrud : Controller
+    public class JqueryCrudController : Controller
     {
         public IActionResult Index()
         {
