@@ -22,16 +22,16 @@ namespace MVCCoreWeb.Controllers
         }
         //url: /Product/DeleteByDataApiJson
         [HttpDelete]
-        public IActionResult DeleteByDataApiJson(int id)
+        public async Task<IActionResult> DeleteByDataApiJson(int id)
         {
-            var p = db.Users.Find(id);
+            var p = await db.Users.FindAsync(id);
             if (p == null)
             {
                 return Json(new { success = false, message = "Data Not Found!!!" });
             }
 
             db.Remove(p);
-            db.SaveChanges();
+            await db.SaveChangesAsync();
 
             return Json(new { success = true, message = "Successfully Deleted!!!!" });
         }
