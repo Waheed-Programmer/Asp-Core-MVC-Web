@@ -14,4 +14,4 @@ Scaffold-DbContext 'Data Source=Your Sql Server name; Initial Catalog=TestDB; In
 
 **Run Command:**
 
-Scaffold-DbContext 'Data Source=Your Sql Server name; Initial Catalog=TestDB; Integrated Security=True' Microsoft.EntityFrameworkCore.SqlServer -outputDir Models/Database -DataAnnotations -Force
+**Scaffold-DbContext** 'Data Source=Your Sql Server name; Initial Catalog=TestDB; Integrated Security=True' Microsoft.EntityFrameworkCore.SqlServer -outputDir Models/Database -DataAnnotations -Force
