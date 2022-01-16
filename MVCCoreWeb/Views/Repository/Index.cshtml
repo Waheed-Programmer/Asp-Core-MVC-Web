@@ -2,7 +2,7 @@
 @{
     List<User> user = Model.userList;
 }
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <h1>Using Data dependency get list data</h1>
 <br />
 <table class="table table-striped border" id="myTable">
@@ -25,9 +25,9 @@
                 <td>@item.UserEmail</td>
                 <td>@item.UserMobileNo</td>
                 <td>
-                    <a asp-action="Edit" class=" btn btn-danger" asp-route-id="@item.UserId">Edit</a> |
-                    <a asp-action="Details" class="btn btn-dark" asp-route-id="@item.UserId">Details</a> |
-                    <a asp-action="Delete" class="btn btn-outline-dark" asp-route-id="@item.UserId">Delete</a>
+                    <a asp-action="Edit" class=" btn btn-default bt-sm" asp-route-id="@item.UserId"><i class="fa fa-pencil-square-o"></i></a> |
+                    <a asp-action="Delete" class="btn btn-default bt-sm" asp-route-id="@item.UserId"><i class="fa fa-trash "></i></a> |
+                    <a asp-action="Details" class="btn btn-default bt-sm" asp-route-id="@item.UserId"><i class="fa fa-info-circle "></i></a>
                 </td>
             </tr>
         }
