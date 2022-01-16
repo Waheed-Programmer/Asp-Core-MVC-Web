@@ -3,21 +3,22 @@
     List<User> user = Model.userList;
 }
 
-    <h1>Using Data dependency get list data</h1><br />
-    <table class="table table-striped border">
-        <thead>
-            <tr class="bg-primary text-white">
-                <th>Id</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Mobile No</th>
-                <th>Actions</th>
+<h1>Using Data dependency get list data</h1>
+<br />
+<table class="table table-striped border" id="myTable">
+    <thead>
+        <tr class="bg-primary text-white">
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Mobile No</th>
+            <th>Actions</th>
 
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in user)
-            {
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in user)
+        {
             <tr>
                 <td>@item.UserId</td>
                 <td>@item.UserName</td>
@@ -30,6 +31,13 @@
                 </td>
             </tr>
         }
-            </tbody>
-        </table>
-    
+    </tbody>
+</table>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+        });
+    </script>
+}
