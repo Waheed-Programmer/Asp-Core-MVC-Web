@@ -17,9 +17,17 @@ namespace MVCCoreWeb.Controllers
         }
         public IActionResult Index()
         {
-            dynamic Obj = new ExpandoObject();
-            Obj.userList = _userServices.GetUsers();
-            return View(Obj);
+            try
+            {
+                dynamic Obj = new ExpandoObject();
+                Obj.userList = _userServices.GetUsers();
+                return View(Obj);
+            }
+            catch (Exception)
+            {
+
+                return View();
+            }
         }
     }
 }
