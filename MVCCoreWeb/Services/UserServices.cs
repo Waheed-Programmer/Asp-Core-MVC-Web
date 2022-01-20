@@ -31,7 +31,16 @@ namespace MVCCoreWeb.Services
 
         public string Delete(User obj)
         {
-            throw new NotImplementedException();
+            try
+            {
+                table.Remove(obj);
+            }
+            catch (Exception ex)
+            {
+
+                return ex.ToString();
+            }
+            return "";
         }
 
         

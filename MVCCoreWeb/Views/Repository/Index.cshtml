@@ -6,6 +6,8 @@
 <h1>Using Data dependency get list data</h1>
 <br />
 <table class="table table-striped border" id="myTable">
+    <a asp-action="Edit" class=" btn btn-primary bt-sm"><i class=""></i>save</a> <br /><br />
+
     <thead>
         <tr class="bg-primary text-white">
             <th>Id</th>
@@ -25,8 +27,9 @@
                 <td>@item.UserEmail</td>
                 <td>@item.UserMobileNo</td>
                 <td>
+
                     <a asp-action="Edit" class=" btn btn-default bt-sm" asp-route-id="@item.UserId"><i class="fa fa-pencil-square-o"></i></a> |
-                    <a asp-action="Delete" class="btn btn-default bt-sm" asp-route-id="@item.UserId"><i class="fa fa-times"></i></a> |
+                    <a asp-action="Delete" onclick="Delete()" class="btn btn-default bt-sm" asp-route-id="@item.UserId"><i class="fa fa-times"></i></a> |
                     <a asp-action="Details" class="btn btn-default bt-sm" asp-route-id="@item.UserId"><i class="fa fa-info-circle "></i></a>
                 </td>
             </tr>
@@ -39,5 +42,34 @@
         $(document).ready(function () {
             $('#myTable').DataTable();
         });
+
+        function Delete(url) {
+
+            swal({
+                title: "Are you want to delete?",
+                text: "It will be pramanently delete!",
+                icon: "warning",
+                buttons: true,
+                dangermode: true
+
+            }).then((willDelete) => {
+                if (willDelete) {
+                    $.ajax({
+                        url: url,
+                        type: "DELETE",
+                        success: function (data) {
+                            if (data.success) {
+                                toastr.success(data.message);
+                                dataTable.ajax.reload();
+                            } else {
+                                toastr.error(data.message);
+                            }
+                        }
+                    })
+                }
+            })
+
+
+        }
     </script>
 }
