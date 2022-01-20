@@ -29,5 +29,19 @@ namespace MVCCoreWeb.Controllers
                 return View();
             }
         }
+  
+
+        public IActionResult Edit()
+        {
+            try
+            {
+                return View();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }
