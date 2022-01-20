@@ -83,12 +83,20 @@ namespace MVCCoreWeb.Controllers
         {
             try
             {
+                var user = _userServices.GetById(id);
+                if(user != null)
+                {
+                    _userServices.Delete(user);
+                    _userServices.SaveChanges();
+                    
 
+                }
+                return Json(new { success = true, message = "Successfully Deleted!!!!" });
             }
             catch (Exception)
             {
 
-                throw;
+                return View();
             }
         }
 

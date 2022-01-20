@@ -41,9 +41,10 @@
     <script>
         $(document).ready(function () {
             $('#myTable').DataTable();
+            
         });
 
-        function Delete(url) {
+        function Delete() {
 
             swal({
                 title: "Are you want to delete?",
@@ -55,7 +56,8 @@
             }).then((willDelete) => {
                 if (willDelete) {
                     $.ajax({
-                        url: url,
+                        
+                        url: /Repository/Delete,
                         type: "DELETE",
                         success: function (data) {
                             if (data.success) {
