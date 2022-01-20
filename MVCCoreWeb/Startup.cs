@@ -52,7 +52,7 @@ namespace MVCCoreWeb
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=JqueryCrud}/{action=Index}/{id?}");
+                    pattern: "{controller=Repository}/{action=Index}/{id?}");
             });
         }
     }
