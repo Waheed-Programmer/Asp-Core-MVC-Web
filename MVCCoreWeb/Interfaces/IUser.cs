@@ -10,5 +10,9 @@ namespace MVCCoreWeb.Interfaces
     {
         IEnumerable<User> GetUsers();
         User GetById(int UserId);
+        string Insert(User obj);
+        string Update(User obj);
+        string Delete(User obj);
+        string SaveChanges();
     }
 }

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MVCCoreWeb.Interfaces;
+using MVCCoreWeb.Models.Database;
 
 namespace MVCCoreWeb.Controllers
 {
@@ -33,8 +34,21 @@ namespace MVCCoreWeb.Controllers
 
         public IActionResult Edit()
         {
+            return View();
+        }
+
+        public IActionResult Save(User u)
+        {
             try
             {
+                if (u.UserId > 0)
+                {
+
+                }
+                else
+                {
+
+                }
                 return View();
             }
             catch (Exception)

@@ -17,6 +17,7 @@ namespace MVCCoreWeb.Services
             _context = new TestDBContext();
             table = _context.Set<User>();
         }
+
         public User GetById(int UserId)
         {
             return table.Find(UserId);
@@ -25,6 +26,58 @@ namespace MVCCoreWeb.Services
         public IEnumerable<User> GetUsers()
         {
             return table.ToList();
+        }
+
+
+        public string Delete(User obj)
+        {
+            throw new NotImplementedException();
+        }
+
+        
+
+        public string Insert(User obj)
+        {
+            try
+            {
+                table.Add(obj);
+            }
+            catch (Exception ex)
+            {
+
+                return ex.ToString();
+            }
+            return "";
+        }
+
+       
+
+        public string Update(User obj)
+        {
+            try
+            {
+                table.Attach(obj);
+                _context.Entry(obj).State = EntityState.Modified;
+            }
+            catch (Exception ex)
+            {
+
+                return ex.ToString();
+            }
+            return "";
+        }
+        public string SaveChanges()
+        {
+            try
+            {
+                _context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+
+                return ex.ToString();
+            }
+            return "";
         }
     }
 }
